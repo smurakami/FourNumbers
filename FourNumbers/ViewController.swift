@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var s = Solver()
-        s.solve(s.numbers);
+        solve(s.numbers);
     }
 
     override func didReceiveMemoryWarning() {

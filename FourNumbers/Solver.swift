@@ -75,42 +75,43 @@ class Solver {
     convenience init() {
         self.init(numbers:[7, 9, 8, 5])
     }
-    func solve(numbers: [Int]) {
-        var stack: [Node] = [];
-        self.search(stack: stack, numbers:numbers);
+}
+
+func solve(numbers: [Int]) {
+    var stack: [Node] = [];
+    search(stack: stack, numbers:numbers);
+}
+func search(#stack: [Node], #numbers: [Int]) {
+    func searchNum() {
+        for var i = 0; i < numbers.count; i++ {
+            var _stack = stack
+            var _numbers = numbers;
+            var n = _numbers.removeAtIndex(i)
+            _stack.append(numNode(n))
+            search(stack: _stack, numbers: _numbers);
+        }
     }
-    func search(#stack: [Node], numbers: [Int]) {
-        func searchNum() {
-            for var i = 0; i < numbers.count; i++ {
-                var _stack = stack
-                var _numbers = numbers;
-                var n = _numbers.removeAtIndex(i)
-                _stack.append(numNode(n))
-                self.search(stack: _stack, numbers: _numbers);
+    func searchOp() {
+        for op : Operator in [.add, .sub, .mul, .div] {
+            var _stack = stack
+            var _numbers = numbers;
+            let a = _stack.removeLast()
+            let b = _stack.removeLast()
+            if b.num == 0 && op == .div {
+                continue
             }
+            _stack.append(numNode(op.exec(a.num, b:b.num)))
+            search(stack: _stack, numbers: _numbers)
         }
-        func searchOp() {
-            for op : Operator in [.add, .sub, .mul, .div] {
-                var _stack = stack
-                var _numbers = numbers;
-                let a = _stack.removeLast()
-                let b = _stack.removeLast()
-                if b.num == 0 && op == .div {
-                    continue
-                }
-                _stack.append(numNode(op.exec(a.num, b:b.num)))
-                search(stack: _stack, numbers: _numbers)
-            }
+    }
+    if stack.count < 2 {
+        if numbers.isEmpty { // 数字を使い切っていたら結果表示
+            println(stack[0])
+        } else { // 数字をスタックに積む
+            searchNum()
         }
-        if stack.count < 2 {
-            if numbers.isEmpty { // 数字を使い切っていたら結果表示
-                println(stack[0])
-            } else { // 数字をスタックに積む
-                searchNum()
-            }
-        } else { // スタックに数字が複数積まれている場合
-            searchNum() // 数字をスタックに積む
-            searchOp()  // 演算子を適用する
-        }
+    } else { // スタックに数字が複数積まれている場合
+        searchNum() // 数字をスタックに積む
+        searchOp()  // 演算子を適用する
     }
 }
