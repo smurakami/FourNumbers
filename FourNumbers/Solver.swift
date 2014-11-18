@@ -9,7 +9,7 @@
 import UIKit
 
 enum NodeType {
-    case op, num;
+    case op, num, none
 }
 
 enum Operator: Printable {
@@ -45,26 +45,38 @@ enum Operator: Printable {
     }
 }
 
-struct Node: Printable {
-    var type: NodeType
-    var num: Int
-    var op: Operator
+class Node: Printable {
+    var type: NodeType = .none
+    var num: Int = 0
+    var op: Operator = .none
+    var leftChild : Node? = nil
+    var rightChild : Node? = nil
     var description: String {
         switch type {
         case .num:
             return String(num)
         case .op:
             return op.description
+        default:
+            return ""
         }
     }
 }
 
 func numNode(num: Int) -> Node {
-    return Node(type: .num, num: num, op: .none)
+    var node : Node = Node()
+    node.type = .num
+    node.num = num
+    return node
 }
 
-func opNode(op: Operator) -> Node {
-    return Node(type: .op, num: 0, op: op);
+func opNode(op: Operator, left: Node, right: Node) -> Node {
+    var node : Node = Node()
+    node.type = .op
+    node.op   = op
+    node.leftChild = left
+    node.rightChild = right
+    return node
 }
 
 class Solver {
@@ -107,7 +119,7 @@ func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
                 }
             }
             _numStack.append(op.exec(a, b:b))
-            _nodeStack.append(opNode(op))
+            _nodeStack.append(opNode(op, _nodeStack[_nodeStack.count - 1], _nodeStack[_nodeStack.count - 2]))
             search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
         }
     }
