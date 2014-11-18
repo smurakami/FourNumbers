@@ -80,7 +80,6 @@ class Solver {
         self.search(stack: stack, numbers:numbers);
     }
     func search(#stack: [Node], numbers: [Int]) {
-//        println(stack)
         func searchNum() {
             for var i = 0; i < numbers.count; i++ {
                 var _stack = stack
@@ -104,13 +103,14 @@ class Solver {
             }
         }
         if stack.count < 2 {
-            searchNum()
-            if numbers.isEmpty {
+            if numbers.isEmpty { // 数字を使い切っていたら結果表示
                 println(stack[0])
+            } else { // 数字をスタックに積む
+                searchNum()
             }
-        } else {
-            searchNum()
-            searchOp()
+        } else { // スタックに数字が複数積まれている場合
+            searchNum() // 数字をスタックに積む
+            searchOp()  // 演算子を適用する
         }
     }
 }
