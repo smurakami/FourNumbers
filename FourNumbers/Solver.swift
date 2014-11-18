@@ -60,24 +60,12 @@ class Node: Printable {
     var type: NodeType = .none
     var num: Int = 0
     var op: Operator = .none
-    var leftChild : Node? = nil
-    var rightChild : Node? = nil
     var description: String {
         switch type {
         case .num:
             return String(num)
         case .op:
             return op.description
-        default:
-            return ""
-        }
-    }
-    var expr: String {
-        switch self.type {
-        case .num:
-            return "\(self.num)"
-        case .op:
-            return "(\(self.leftChild!.expr) \(self.op.description) \(self.rightChild!.expr))"
         default:
             return ""
         }
@@ -91,12 +79,10 @@ func numNode(num: Int) -> Node {
     return node
 }
 
-func opNode(op: Operator, left: Node, right: Node) -> Node {
+func opNode(op: Operator) -> Node {
     var node : Node = Node()
     node.type = .op
     node.op   = op
-    node.leftChild = left
-    node.rightChild = right
     return node
 }
 
@@ -131,15 +117,14 @@ func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
                 }
             }
             _numStack.append(op.exec(a, b:b))
-            _nodeStack.append(opNode(op, _nodeStack[_nodeStack.count - 1], _nodeStack[_nodeStack.count - 2]))
+            _nodeStack.append(opNode(op))
             search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
         }
     }
     if numStack.count < 2 {
         if numbers.isEmpty { // 数字を使い切っていたら結果表示
             if (numStack[0] == 10) {
-                println("\(numStack[0]): \(nodeStack.last!.expr)")
-                println(nodeStack)
+                println("\(numStack[0]): \(nodeStack)")
             }
         } else { // 数字をスタックに積む
             searchNum()
