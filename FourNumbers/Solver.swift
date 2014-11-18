@@ -8,6 +8,16 @@
 
 import UIKit
 
+class Solver {
+    var numbers: [Int]
+    init(numbers: [Int]) {
+        self.numbers = numbers
+    }
+    convenience init() {
+        self.init(numbers:[7, 9, 8, 5])
+    }
+}
+
 enum NodeType {
     case op, num, none
 }
@@ -23,6 +33,7 @@ enum Operator: Printable {
         case .mul:
             return a * b
         case .div:
+//            println("\(a) \(b)")
             return a / b
         default:
             return 0
@@ -61,6 +72,16 @@ class Node: Printable {
             return ""
         }
     }
+    var expr: String {
+        switch self.type {
+        case .num:
+            return "\(self.num)"
+        case .op:
+            return "(\(self.leftChild!.expr) \(self.op.description) \(self.rightChild!.expr))"
+        default:
+            return ""
+        }
+    }
 }
 
 func numNode(num: Int) -> Node {
@@ -79,21 +100,12 @@ func opNode(op: Operator, left: Node, right: Node) -> Node {
     return node
 }
 
-class Solver {
-    var numbers: [Int]
-    init(numbers: [Int]) {
-        self.numbers = numbers
-    }
-    convenience init() {
-        self.init(numbers:[7, 9, 8, 5])
-    }
-}
-
 func solve(numbers: [Int]) {
     var nodeStack: [Node] = []
     var numStack: [Int] = []
     search(nodeStack: nodeStack, numStack: numStack, numbers:numbers)
 }
+
 func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
     func searchNum() {
         for var i = 0; i < numbers.count; i++ {
@@ -114,7 +126,7 @@ func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
             let a = _numStack.removeLast()
             let b = _numStack.removeLast()
             if op == .div {
-                if a % b != 0 || b == 0 {
+                if b == 0 || a % b != 0 {
                     continue
                 }
             }
@@ -126,7 +138,8 @@ func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
     if numStack.count < 2 {
         if numbers.isEmpty { // 数字を使い切っていたら結果表示
             if (numStack[0] == 10) {
-                println("\(numStack[0]): \(nodeStack)")
+                println("\(numStack[0]): \(nodeStack.last!.expr)")
+                println(nodeStack)
             }
         } else { // 数字をスタックに積む
             searchNum()
