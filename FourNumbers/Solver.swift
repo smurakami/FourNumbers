@@ -62,105 +62,107 @@ struct Node: Printable {
     }
 }
 
-func expr(nodes: [Node]) -> String {
-    var stack: [String] = []
-    for node in nodes {
-        switch node.type {
-        case .num:
-            stack.append(node.description)
-        case .op:
-            var b = stack.removeLast()
-            var a = stack.removeLast()
-            stack.append("(\(a) \(node.op.description) \(b))")
-        default:
-            break
-        }
+class Solver {
+    let numbers: [Int]
+    let target: Int
+    var answer: String
+    init(numbers: [Int], target: Int) {
+        self.target = target
+        self.numbers = numbers
+        self.answer = ""
     }
-    return stack[0]
-//    var node = nodeStack.removeLast()
-//    switch node.type {
-//    case .num:
-//        return String(node.num)
-//    case .op:
-//        return node.op.description
-//    default:
-//        return ""
-//    }
-}
-
-func numNode(num: Int) -> Node {
-    var node : Node = Node()
-    node.type = .num
-    node.num = num
-    return node
-}
-
-func opNode(op: Operator) -> Node {
-    var node : Node = Node()
-    node.type = .op
-    node.op   = op
-    return node
-}
-
-func solve(numbers: [Int]) {
-    var nodeStack: [Node] = []
-    var numStack: [Int] = []
-    search(nodeStack: nodeStack, numStack: numStack, numbers:numbers)
-}
-
-func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) -> Bool {
-    func searchNum() -> Bool {
-        for var i = 0; i < numbers.count; i++ {
-            var _numStack = numStack
-            var _nodeStack = nodeStack
-            var _numbers = numbers
-            var n = _numbers.removeAtIndex(i)
-            _numStack.append(n)
-            _nodeStack.append(numNode(n))
-            let finished = search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
-            if finished {
-                return true
+    
+    func expr(nodes: [Node]) -> String {
+        var stack: [String] = []
+        for node in nodes {
+            switch node.type {
+            case .num:
+                stack.append(node.description)
+            case .op:
+                var b = stack.removeLast()
+                var a = stack.removeLast()
+                stack.append("(\(a) \(node.op.description) \(b))")
+            default:
+                break
             }
         }
-        return false
+        return stack[0]
     }
-    func searchOp() -> Bool {
-        for op : Operator in [.add, .sub, .mul, .div] {
-            var _numStack = numStack
-            var _nodeStack = nodeStack
-            var _numbers = numbers
-            let b = _numStack.removeLast()
-            let a = _numStack.removeLast()
-            if op == .div {
-                if b == 0 || a % b != 0 {
-                    continue
+    
+    func numNode(num: Int) -> Node {
+        var node : Node = Node()
+        node.type = .num
+        node.num = num
+        return node
+    }
+    
+    func opNode(op: Operator) -> Node {
+        var node : Node = Node()
+        node.type = .op
+        node.op   = op
+        return node
+    }
+    
+    func solve() {
+        var nodeStack: [Node] = []
+        var numStack: [Int] = []
+        search(nodeStack: nodeStack, numStack: numStack, numbers:numbers)
+    }
+    
+    func search(#nodeStack: [Node], numStack: [Int], numbers: [Int]) -> Bool {
+        func searchNum() -> Bool {
+            for var i = 0; i < numbers.count; i++ {
+                var _numStack = numStack
+                var _nodeStack = nodeStack
+                var _numbers = numbers
+                var n = _numbers.removeAtIndex(i)
+                _numStack.append(n)
+                _nodeStack.append(numNode(n))
+                let finished = search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
+                if finished {
+                    return true
                 }
             }
-            _numStack.append(op.exec(a, b:b))
-            _nodeStack.append(opNode(op))
-            let finished = search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
-            if finished {
-                return true
+            return false
+        }
+        func searchOp() -> Bool {
+            for op : Operator in [.add, .sub, .mul, .div] {
+                var _numStack = numStack
+                var _nodeStack = nodeStack
+                var _numbers = numbers
+                let b = _numStack.removeLast()
+                let a = _numStack.removeLast()
+                if op == .div {
+                    if b == 0 || a % b != 0 {
+                        continue
+                    }
+                }
+                _numStack.append(op.exec(a, b:b))
+                _nodeStack.append(opNode(op))
+                let finished = search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
+                if finished {
+                    return true
+                }
             }
+            return false
+        }
+        if numStack.count < 2 {
+            if numbers.isEmpty { // 数字を使い切っていたら結果表示
+                if (numStack[0] == 10) {
+                    self.answer = expr(nodeStack)
+                    return true// 一つ答えが見つかったら打ち切り
+                }
+            } else { // 数字をスタックに積む
+                let finished = searchNum()
+                if finished { return true }
+            }
+        } else { // スタックに数字が複数積まれている場合
+            var finished = searchNum()
+            if finished { return true }
+            finished = searchOp()  // 演算子を適用する
+            if finished { return true }
         }
         return false
     }
-    if numStack.count < 2 {
-        if numbers.isEmpty { // 数字を使い切っていたら結果表示
-            if (numStack[0] == 10) {
-                println("\(numStack[0]): \(nodeStack)")
-                println(expr(nodeStack))
-                return true// 一つ答えが見つかったら打ち切り
-            }
-        } else { // 数字をスタックに積む
-            let finished = searchNum()
-            if finished { return true }
-        }
-    } else { // スタックに数字が複数積まれている場合
-        var finished = searchNum()
-        if finished { return true }
-        finished = searchOp()  // 演算子を適用する
-        if finished { return true }
-    }
-    return false
 }
+
