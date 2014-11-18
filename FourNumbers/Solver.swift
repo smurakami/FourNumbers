@@ -78,35 +78,44 @@ class Solver {
 }
 
 func solve(numbers: [Int]) {
-    var stack: [Node] = [];
-    search(stack: stack, numbers:numbers);
+    var nodeStack: [Node] = []
+    var numStack: [Int] = []
+    search(nodeStack: nodeStack, numStack: numStack, numbers:numbers)
 }
-func search(#stack: [Node], #numbers: [Int]) {
+func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
     func searchNum() {
         for var i = 0; i < numbers.count; i++ {
-            var _stack = stack
-            var _numbers = numbers;
+            var _numStack = numStack
+            var _nodeStack = nodeStack
+            var _numbers = numbers
             var n = _numbers.removeAtIndex(i)
-            _stack.append(numNode(n))
-            search(stack: _stack, numbers: _numbers);
+            _numStack.append(n)
+            _nodeStack.append(numNode(n))
+            search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
         }
     }
     func searchOp() {
         for op : Operator in [.add, .sub, .mul, .div] {
-            var _stack = stack
-            var _numbers = numbers;
-            let a = _stack.removeLast()
-            let b = _stack.removeLast()
-            if b.num == 0 && op == .div {
-                continue
+            var _numStack = numStack
+            var _nodeStack = nodeStack
+            var _numbers = numbers
+            let a = _numStack.removeLast()
+            let b = _numStack.removeLast()
+            if op == .div {
+                if a % b != 0 || b == 0 {
+                    continue
+                }
             }
-            _stack.append(numNode(op.exec(a.num, b:b.num)))
-            search(stack: _stack, numbers: _numbers)
+            _numStack.append(op.exec(a, b:b))
+            _nodeStack.append(opNode(op))
+            search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
         }
     }
-    if stack.count < 2 {
+    if numStack.count < 2 {
         if numbers.isEmpty { // 数字を使い切っていたら結果表示
-            println(stack[0])
+            if (numStack[0] == 10) {
+                println("\(numStack[0]): \(nodeStack)")
+            }
         } else { // 数字をスタックに積む
             searchNum()
         }
