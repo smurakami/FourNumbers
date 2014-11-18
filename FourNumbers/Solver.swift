@@ -8,16 +8,6 @@
 
 import UIKit
 
-class Solver {
-    var numbers: [Int]
-    init(numbers: [Int]) {
-        self.numbers = numbers
-    }
-    convenience init() {
-        self.init(numbers:[7, 9, 8, 5])
-    }
-}
-
 enum NodeType {
     case op, num, none
 }
@@ -118,8 +108,8 @@ func solve(numbers: [Int]) {
     search(nodeStack: nodeStack, numStack: numStack, numbers:numbers)
 }
 
-func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
-    func searchNum() {
+func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) -> Bool {
+    func searchNum() -> Bool {
         for var i = 0; i < numbers.count; i++ {
             var _numStack = numStack
             var _nodeStack = nodeStack
@@ -127,10 +117,14 @@ func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
             var n = _numbers.removeAtIndex(i)
             _numStack.append(n)
             _nodeStack.append(numNode(n))
-            search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
+            let finished = search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
+            if finished {
+                return true
+            }
         }
+        return false
     }
-    func searchOp() {
+    func searchOp() -> Bool {
         for op : Operator in [.add, .sub, .mul, .div] {
             var _numStack = numStack
             var _nodeStack = nodeStack
@@ -144,20 +138,29 @@ func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
             }
             _numStack.append(op.exec(a, b:b))
             _nodeStack.append(opNode(op))
-            search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
+            let finished = search(nodeStack: _nodeStack, numStack: _numStack, numbers: _numbers)
+            if finished {
+                return true
+            }
         }
+        return false
     }
     if numStack.count < 2 {
         if numbers.isEmpty { // 数字を使い切っていたら結果表示
             if (numStack[0] == 10) {
                 println("\(numStack[0]): \(nodeStack)")
                 println(expr(nodeStack))
+                return true// 一つ答えが見つかったら打ち切り
             }
         } else { // 数字をスタックに積む
-            searchNum()
+            let finished = searchNum()
+            if finished { return true }
         }
     } else { // スタックに数字が複数積まれている場合
-        searchNum() // 数字をスタックに積む
-        searchOp()  // 演算子を適用する
+        var finished = searchNum()
+        if finished { return true }
+        finished = searchOp()  // 演算子を適用する
+        if finished { return true }
     }
+    return false
 }

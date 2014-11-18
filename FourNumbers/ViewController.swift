@@ -12,10 +12,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var s = Solver()
-        solve(s.numbers);
+        solve([7, 9, 8, 5]);
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
