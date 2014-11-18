@@ -56,7 +56,7 @@ enum Operator: Printable {
     }
 }
 
-class Node: Printable {
+struct Node: Printable {
     var type: NodeType = .none
     var num: Int = 0
     var op: Operator = .none
@@ -70,6 +70,32 @@ class Node: Printable {
             return ""
         }
     }
+}
+
+func expr(nodes: [Node]) -> String {
+    var stack: [String] = []
+    for node in nodes {
+        switch node.type {
+        case .num:
+            stack.append(node.description)
+        case .op:
+            var b = stack.removeLast()
+            var a = stack.removeLast()
+            stack.append("(\(a) \(node.op.description) \(b))")
+        default:
+            break
+        }
+    }
+    return stack[0]
+//    var node = nodeStack.removeLast()
+//    switch node.type {
+//    case .num:
+//        return String(node.num)
+//    case .op:
+//        return node.op.description
+//    default:
+//        return ""
+//    }
 }
 
 func numNode(num: Int) -> Node {
@@ -109,8 +135,8 @@ func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
             var _numStack = numStack
             var _nodeStack = nodeStack
             var _numbers = numbers
-            let a = _numStack.removeLast()
             let b = _numStack.removeLast()
+            let a = _numStack.removeLast()
             if op == .div {
                 if b == 0 || a % b != 0 {
                     continue
@@ -125,6 +151,7 @@ func search(#nodeStack: [Node], #numStack: [Int], #numbers: [Int]) {
         if numbers.isEmpty { // 数字を使い切っていたら結果表示
             if (numStack[0] == 10) {
                 println("\(numStack[0]): \(nodeStack)")
+                println(expr(nodeStack))
             }
         } else { // 数字をスタックに積む
             searchNum()
