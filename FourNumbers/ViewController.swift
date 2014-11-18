@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var numLabel: UILabel!
+    @IBOutlet weak var exprLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,28 @@ class ViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // ボタン群
+    @IBAction func button0Pushed(sender: AnyObject) {
+    }
+    @IBAction func button1Pushed(sender: AnyObject) {
+    }
+    @IBAction func button2Pushed(sender: AnyObject) {
+    }
+    @IBAction func button3Pushed(sender: AnyObject) {
+    }
+    @IBAction func button4Pushed(sender: AnyObject) {
+    }
+    @IBAction func button5Pushed(sender: AnyObject) {
+    }
+    @IBAction func button6Pushed(sender: AnyObject) {
+    }
+    @IBAction func button7Pushed(sender: AnyObject) {
+    }
+    @IBAction func button8Pushed(sender: AnyObject) {
+    }
+    @IBAction func button9Pushed(sender: AnyObject) {
     }
 }
 
