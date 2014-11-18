@@ -14,9 +14,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var s = Solver(numbers:[7, 9, 8, 5], target: 10);
-        s.solve()
-        println("\(s.target) = \(s.answer)")
+        numLabel.text = ""
+        exprLabel.text = ""
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +42,13 @@ class ViewController: UIViewController {
     @IBAction func button8Pushed(sender: AnyObject) {
     }
     @IBAction func button9Pushed(sender: AnyObject) {
+    }
+    @IBAction func delButtonPushed(sender: AnyObject) {
+    }
+    @IBAction func solveButtonPushed(sender: AnyObject) {
+        var s = Solver(numbers:[7, 9, 8, 5], target: 10);
+        s.solve()
+        println("\(s.target) = \(s.answer)")
     }
 }
 
