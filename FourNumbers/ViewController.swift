@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var numLabel: UILabel!
     @IBOutlet weak var exprLabel: UILabel!
+    
+    var numbers: [Int] = []
+    var target: Int = 10
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,33 +25,42 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    // ボタン群
-    @IBAction func button0Pushed(sender: AnyObject) {
+    func addNum(num: Int) {
+        self.numbers.append(num)
+        var str = " "
+        for n in self.numbers {
+            str += "\(n) "
+        }
+        self.numLabel.text = str
     }
-    @IBAction func button1Pushed(sender: AnyObject) {
+    
+    func delNum() {
+        self.numbers = []
+        self.numLabel.text = ""
     }
-    @IBAction func button2Pushed(sender: AnyObject) {
-    }
-    @IBAction func button3Pushed(sender: AnyObject) {
-    }
-    @IBAction func button4Pushed(sender: AnyObject) {
-    }
-    @IBAction func button5Pushed(sender: AnyObject) {
-    }
-    @IBAction func button6Pushed(sender: AnyObject) {
-    }
-    @IBAction func button7Pushed(sender: AnyObject) {
-    }
-    @IBAction func button8Pushed(sender: AnyObject) {
-    }
-    @IBAction func button9Pushed(sender: AnyObject) {
-    }
-    @IBAction func delButtonPushed(sender: AnyObject) {
-    }
-    @IBAction func solveButtonPushed(sender: AnyObject) {
-        var s = Solver(numbers:[7, 9, 8, 5], target: 10);
+    
+    func solve() {
+        var s = Solver(numbers: self.numbers, target: 10);
         s.solve()
-        println("\(s.target) = \(s.answer)")
+        if (s.answer != "") {
+            exprLabel.text = "\(s.target) = \(s.answer)"
+        } else {
+            exprLabel.text = "\(s.target) = (can not solve)"
+        }
     }
+    
+    // ボタン群
+    @IBAction func button0Pushed(sender: AnyObject) { addNum(0) }
+    @IBAction func button1Pushed(sender: AnyObject) { addNum(1) }
+    @IBAction func button2Pushed(sender: AnyObject) { addNum(2) }
+    @IBAction func button3Pushed(sender: AnyObject) { addNum(3) }
+    @IBAction func button4Pushed(sender: AnyObject) { addNum(4) }
+    @IBAction func button5Pushed(sender: AnyObject) { addNum(5) }
+    @IBAction func button6Pushed(sender: AnyObject) { addNum(6) }
+    @IBAction func button7Pushed(sender: AnyObject) { addNum(7) }
+    @IBAction func button8Pushed(sender: AnyObject) { addNum(8) }
+    @IBAction func button9Pushed(sender: AnyObject) { addNum(9) }
+    @IBAction func delButtonPushed(sender: AnyObject) { delNum() }
+    @IBAction func solveButtonPushed(sender: AnyObject) { solve() }
 }
 
