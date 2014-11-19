@@ -37,9 +37,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bia-3z-Orf">
                                 <rect key="frame" x="16" y="188" width="288" height="360"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4a-9N-1ua" customClass="UIRoundButton">
-                                        <rect key="frame" x="33" y="34" width="66" height="66"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4a-9N-1ua" customClass="UIRoundButton">
+                                        <rect key="frame" x="21" y="34" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="CuR-lW-50b"/>
+                                            <constraint firstAttribute="width" constant="66" id="hvh-Ye-T3U"/>
+                                        </constraints>
                                         <state key="normal" title="7">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -50,9 +54,13 @@
                                             <action selector="button7Pushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Pq-UT-DpG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcg-fE-xOh" customClass="UIRoundButton">
-                                        <rect key="frame" x="212" y="34" width="66" height="66"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcg-fE-xOh" customClass="UIRoundButton">
+                                        <rect key="frame" x="201" y="34" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="3dU-NS-NIf"/>
+                                            <constraint firstAttribute="width" constant="66" id="RYp-1v-sUb"/>
+                                        </constraints>
                                         <state key="normal" title="9">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -63,9 +71,13 @@
                                             <action selector="button9Pushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3hY-Qu-beD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tei-KF-nKK" customClass="UIRoundButton">
-                                        <rect key="frame" x="123" y="34" width="66" height="66"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tei-KF-nKK" customClass="UIRoundButton">
+                                        <rect key="frame" x="111" y="34" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="L3y-lv-SbW"/>
+                                            <constraint firstAttribute="width" constant="66" id="Sgb-gW-rvi"/>
+                                        </constraints>
                                         <state key="normal" title="8">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -76,9 +88,13 @@
                                             <action selector="button8Pushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rpN-bG-Ano"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aB-u6-Jl2" customClass="UIRoundButton">
-                                        <rect key="frame" x="124" y="148" width="44" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aB-u6-Jl2" customClass="UIRoundButton">
+                                        <rect key="frame" x="111" y="124" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="eya-MH-5oM"/>
+                                            <constraint firstAttribute="height" constant="66" id="hem-Zp-vLA"/>
+                                        </constraints>
                                         <state key="normal" title="5">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -89,9 +105,13 @@
                                             <action selector="button5Pushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LSU-zN-dsy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1u-ne-oUB" customClass="UIRoundButton">
-                                        <rect key="frame" x="34" y="148" width="44" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1u-ne-oUB" customClass="UIRoundButton">
+                                        <rect key="frame" x="21" y="124" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="1BO-Uf-GtK"/>
+                                            <constraint firstAttribute="width" constant="66" id="rLB-SF-NUr"/>
+                                        </constraints>
                                         <state key="normal" title="4">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -102,9 +122,13 @@
                                             <action selector="button4Pushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QyO-R3-Fx9"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HX0-5W-6Ih" customClass="UIRoundButton">
-                                        <rect key="frame" x="213" y="148" width="44" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HX0-5W-6Ih" customClass="UIRoundButton">
+                                        <rect key="frame" x="201" y="124" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="2hG-T3-Rsk"/>
+                                            <constraint firstAttribute="width" constant="66" id="kQy-uu-RJb"/>
+                                        </constraints>
                                         <state key="normal" title="6">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -115,9 +139,13 @@
                                             <action selector="button6Pushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eAa-5K-VLp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-L1-b88" customClass="UIRoundButton">
-                                        <rect key="frame" x="124" y="206" width="44" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-L1-b88" customClass="UIRoundButton">
+                                        <rect key="frame" x="111" y="214" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="JoH-EC-AMA"/>
+                                            <constraint firstAttribute="width" constant="66" id="jTE-wg-p9h"/>
+                                        </constraints>
                                         <state key="normal" title="2">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -128,9 +156,13 @@
                                             <action selector="button2Pushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bE6-Xo-9gV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9m-Zd-l0z" customClass="UIRoundButton">
-                                        <rect key="frame" x="34" y="206" width="44" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9m-Zd-l0z" customClass="UIRoundButton">
+                                        <rect key="frame" x="21" y="214" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="Gid-b9-lI4"/>
+                                            <constraint firstAttribute="height" constant="66" id="tUi-2A-4gL"/>
+                                        </constraints>
                                         <state key="normal" title="1">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -141,9 +173,13 @@
                                             <action selector="button1Pushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8rR-G6-1PA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRK-kr-P1q" customClass="UIRoundButton">
-                                        <rect key="frame" x="213" y="206" width="44" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRK-kr-P1q" customClass="UIRoundButton">
+                                        <rect key="frame" x="201" y="214" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="CqQ-sN-esx"/>
+                                            <constraint firstAttribute="width" constant="66" id="J9b-0h-TIK"/>
+                                        </constraints>
                                         <state key="normal" title="3">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -154,9 +190,13 @@
                                             <action selector="button3Pushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bGG-K3-HTa"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4z-gQ-e8d" customClass="UIRoundButton">
-                                        <rect key="frame" x="34" y="265" width="44" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4z-gQ-e8d" customClass="UIRoundButton">
+                                        <rect key="frame" x="21" y="295" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="eNG-eA-Xm2"/>
+                                            <constraint firstAttribute="height" constant="66" id="on7-d7-q9o"/>
+                                        </constraints>
                                         <state key="normal" title="del">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -167,9 +207,13 @@
                                             <action selector="delButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="For-fb-9VL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBf-YL-Z1t" customClass="UIRoundButton">
-                                        <rect key="frame" x="213" y="265" width="44" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBf-YL-Z1t" customClass="UIRoundButton">
+                                        <rect key="frame" x="201" y="295" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="IXf-fG-By7"/>
+                                            <constraint firstAttribute="height" constant="66" id="r1L-lK-OFy"/>
+                                        </constraints>
                                         <state key="normal" title="solve">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -180,9 +224,13 @@
                                             <action selector="solveButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o9O-LN-LWF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hg-Us-3kE" customClass="UIRoundButton">
-                                        <rect key="frame" x="124" y="265" width="44" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hg-Us-3kE" customClass="UIRoundButton">
+                                        <rect key="frame" x="111" y="295" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="f88-eE-ACu"/>
+                                            <constraint firstAttribute="width" constant="66" id="vbL-yG-abr"/>
+                                        </constraints>
                                         <state key="normal" title="0">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -196,6 +244,30 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="4Hg-Us-3kE" firstAttribute="centerY" secondItem="k4z-gQ-e8d" secondAttribute="centerY" id="0qO-8d-KUQ"/>
+                                    <constraint firstItem="tei-KF-nKK" firstAttribute="leading" secondItem="k4a-9N-1ua" secondAttribute="trailing" constant="24" id="0yj-hd-5Oh"/>
+                                    <constraint firstItem="SRK-kr-P1q" firstAttribute="centerY" secondItem="0ns-L1-b88" secondAttribute="centerY" id="1pb-nc-Iga"/>
+                                    <constraint firstItem="b1u-ne-oUB" firstAttribute="centerX" secondItem="k4a-9N-1ua" secondAttribute="centerX" id="2DV-I9-hvs"/>
+                                    <constraint firstItem="4Hg-Us-3kE" firstAttribute="centerY" secondItem="uBf-YL-Z1t" secondAttribute="centerY" id="8SZ-lk-Mb1"/>
+                                    <constraint firstItem="b1u-ne-oUB" firstAttribute="centerX" secondItem="j9m-Zd-l0z" secondAttribute="centerX" id="93X-eK-w92"/>
+                                    <constraint firstItem="7aB-u6-Jl2" firstAttribute="top" secondItem="tei-KF-nKK" secondAttribute="bottom" constant="24" id="9bX-xh-n5G"/>
+                                    <constraint firstItem="uBf-YL-Z1t" firstAttribute="centerX" secondItem="dcg-fE-xOh" secondAttribute="centerX" id="DlV-2o-QiM"/>
+                                    <constraint firstItem="tei-KF-nKK" firstAttribute="top" secondItem="bia-3z-Orf" secondAttribute="top" constant="34" id="EdI-tN-I6s"/>
+                                    <constraint firstItem="uBf-YL-Z1t" firstAttribute="centerX" secondItem="SRK-kr-P1q" secondAttribute="centerX" id="HnW-lp-nAE"/>
+                                    <constraint firstItem="SRK-kr-P1q" firstAttribute="centerY" secondItem="j9m-Zd-l0z" secondAttribute="centerY" id="OGx-1i-HTm"/>
+                                    <constraint firstItem="tei-KF-nKK" firstAttribute="centerY" secondItem="k4a-9N-1ua" secondAttribute="centerY" id="OWS-Y3-0fZ"/>
+                                    <constraint firstItem="0ns-L1-b88" firstAttribute="top" secondItem="7aB-u6-Jl2" secondAttribute="bottom" constant="24" id="TFI-Tt-2Yw"/>
+                                    <constraint firstItem="7aB-u6-Jl2" firstAttribute="centerX" secondItem="tei-KF-nKK" secondAttribute="centerX" id="VIp-I2-7Z5"/>
+                                    <constraint firstItem="uBf-YL-Z1t" firstAttribute="centerX" secondItem="HX0-5W-6Ih" secondAttribute="centerX" id="VfI-ei-MUF"/>
+                                    <constraint firstAttribute="centerX" secondItem="tei-KF-nKK" secondAttribute="centerX" id="Yqd-it-0Yw"/>
+                                    <constraint firstItem="7aB-u6-Jl2" firstAttribute="centerY" secondItem="HX0-5W-6Ih" secondAttribute="centerY" id="Z3u-Bg-Qa5"/>
+                                    <constraint firstItem="dcg-fE-xOh" firstAttribute="leading" secondItem="tei-KF-nKK" secondAttribute="trailing" constant="24" id="aaB-M9-M4n"/>
+                                    <constraint firstItem="4Hg-Us-3kE" firstAttribute="top" secondItem="0ns-L1-b88" secondAttribute="bottom" constant="15" id="gpE-Nk-qEU"/>
+                                    <constraint firstItem="7aB-u6-Jl2" firstAttribute="centerX" secondItem="4Hg-Us-3kE" secondAttribute="centerX" id="l3h-Fp-eH4"/>
+                                    <constraint firstItem="b1u-ne-oUB" firstAttribute="centerX" secondItem="k4z-gQ-e8d" secondAttribute="centerX" id="nqO-Ur-axY"/>
+                                    <constraint firstItem="7aB-u6-Jl2" firstAttribute="centerY" secondItem="b1u-ne-oUB" secondAttribute="centerY" id="pEo-ZK-zq7"/>
+                                    <constraint firstItem="tei-KF-nKK" firstAttribute="centerY" secondItem="dcg-fE-xOh" secondAttribute="centerY" id="pnL-GC-qMC"/>
+                                    <constraint firstItem="7aB-u6-Jl2" firstAttribute="centerX" secondItem="0ns-L1-b88" secondAttribute="centerX" id="qhb-zv-yY7"/>
                                     <constraint firstAttribute="width" constant="288" id="who-qL-CaG"/>
                                     <constraint firstAttribute="height" constant="360" id="wnu-fY-yb5"/>
                                 </constraints>
