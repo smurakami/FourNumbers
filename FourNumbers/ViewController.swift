@@ -32,11 +32,13 @@ class ViewController: UIViewController {
             str += "\(n) "
         }
         self.numLabel.text = str
+        self.exprLabel.text = ""
     }
     
     func delNum() {
         self.numbers = []
         self.numLabel.text = ""
+        self.exprLabel.text = ""
     }
     
     func solve() {

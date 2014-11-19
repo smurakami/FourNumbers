@@ -14,6 +14,7 @@
 		37BA05141A1AF67800A677A6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37BA05121A1AF67800A677A6 /* LaunchScreen.xib */; };
 		37BA05201A1AF67800A677A6 /* FourNumbersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BA051F1A1AF67800A677A6 /* FourNumbersTests.swift */; };
 		37BA052A1A1B1D7000A677A6 /* Solver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BA05291A1B1D7000A677A6 /* Solver.swift */; };
+		37C015301A1C3C98009A1F6E /* UIRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0152F1A1C3C98009A1F6E /* UIRoundButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,9 @@
 		37BA051E1A1AF67800A677A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37BA051F1A1AF67800A677A6 /* FourNumbersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourNumbersTests.swift; sourceTree = "<group>"; };
 		37BA05291A1B1D7000A677A6 /* Solver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Solver.swift; sourceTree = "<group>"; };
+		37C0152D1A1C3C97009A1F6E /* FourNumbers-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FourNumbers-Bridging-Header.h"; sourceTree = "<group>"; };
+		37C0152E1A1C3C98009A1F6E /* UIRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoundButton.h; sourceTree = "<group>"; };
+		37C0152F1A1C3C98009A1F6E /* UIRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoundButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 		37BA05061A1AF67800A677A6 /* FourNumbers */ = {
 			isa = PBXGroup;
 			children = (
+				37C0152E1A1C3C98009A1F6E /* UIRoundButton.h */,
+				37C0152F1A1C3C98009A1F6E /* UIRoundButton.m */,
 				37BA05091A1AF67800A677A6 /* AppDelegate.swift */,
 				37BA050B1A1AF67800A677A6 /* ViewController.swift */,
 				37BA050D1A1AF67800A677A6 /* Main.storyboard */,
@@ -86,6 +92,7 @@
 				37BA05121A1AF67800A677A6 /* LaunchScreen.xib */,
 				37BA05071A1AF67800A677A6 /* Supporting Files */,
 				37BA05291A1B1D7000A677A6 /* Solver.swift */,
+				37C0152D1A1C3C97009A1F6E /* FourNumbers-Bridging-Header.h */,
 			);
 			path = FourNumbers;
 			sourceTree = "<group>";
@@ -215,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37C015301A1C3C98009A1F6E /* UIRoundButton.m in Sources */,
 				37BA050C1A1AF67800A677A6 /* ViewController.swift in Sources */,
 				37BA050A1A1AF67800A677A6 /* AppDelegate.swift in Sources */,
 				37BA052A1A1B1D7000A677A6 /* Solver.swift in Sources */,
@@ -342,9 +350,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FourNumbers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FourNumbers/FourNumbers-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -352,9 +363,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FourNumbers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FourNumbers/FourNumbers-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -411,6 +424,7 @@
 				37BA05251A1AF67800A677A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37BA05261A1AF67800A677A6 /* Build configuration list for PBXNativeTarget "FourNumbersTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +433,7 @@
 				37BA05281A1AF67800A677A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
